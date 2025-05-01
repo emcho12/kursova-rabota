@@ -1,5 +1,6 @@
-import LoginForm from "./Components/Assets/LoginForm/LoginForm";
 
+import './Components/LoginForm/LoginForm'
+import LoginForm from './Components/LoginForm/LoginForm';
 
 function App() {
   return (
