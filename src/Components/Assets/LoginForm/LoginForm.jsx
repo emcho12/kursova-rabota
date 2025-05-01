@@ -1,6 +1,6 @@
 import React from 'react'
-import './LoginForms.css';
-import { FaUserAlt } from "react-icons/fa";
+import './LoginForm.css';
+import { FaUserAlt, FaLock  } from "react-icons/fa";
 function LoginForm() {
   return (
     <div className='wrapper'>
@@ -11,16 +11,17 @@ function LoginForm() {
 
             <div className='input-box'>
                 <input type="text" placeholder="Username" required />
-                <FaUserAlt />
+                <FaUserAlt className='icon' />
             </div>
 
             <div className='input-box'>
                 <input type="password" placeholder="Password" required />
+                <FaLock className='icon'/>
             </div>
 
             <div className="remember-forgot">
                 <label><input type="checkbox" />Remember me</label>
-                <a href='#'>Forgot Password</a>
+                <a href='#'>Forgot Password?</a>
             </div>
 
         <button type ="submit">Login</button>
