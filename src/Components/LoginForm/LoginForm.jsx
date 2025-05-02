@@ -1,43 +1,75 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './LoginForm.css';
-import { FaUserAlt, FaLock  } from "react-icons/fa";
-function LoginForm() {
-  return (
-    <div className='wrapper'>
+import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 
-        <form action="">
+const LoginRegister = () => {
 
-            <h1>Login</h1>
+    const [action, setAction] = useState('');
 
-            <div className='input-box'>
-                <input type="text" placeholder="Username" required />
-                <FaUserAlt className='icon' />
-            </div>
+    const registerLink = () => {
+        setAction(' active');
+    };
 
-            <div className='input-box'>
-                <input type="password" placeholder="Password" required />
-                <FaLock className='icon'/>
-            </div>
+    const loginLink = () => {
+        setAction('');
+    };
 
-            <div className="remember-forgot">
-                <label><input type="checkbox" />Remember me</label>
-                <a href='#'>Forgot Password?</a>
-            </div>
-
-        <button type ="submit">Login</button>
-        <div className="register-link">
-
-            <p>Don't have an account? <a href="#">Register</a></p>
-
-        </div>
-    
-
-
-
-        </form>
-
+    return (
+    <div className={`wrapper${action}`}>
+    <div className="form-box login">
+            <form action="">
+                <h1>Влизане</h1>
+    <div className="input-box">
+    <input type="text" placeholder='Username' required />
+            <FaUser className='icon' />
     </div>
-  );
+    <div className="input-box">
+        <input type="password" placeholder='Password' required />
+            <FaLock className='icon' />
+    </div>
+
+    <div className="remember-forgot">
+    <label><input type="checkbox" />Запомни ме</label>
+            <a href="#">Забравена парола?</a>
+    </div>
+
+        <button type="submit">Влезни</button>
+
+    <div className="register-link">
+        <p>Нямаш акаунт? <a href="#" onClick={registerLink}>Регистрирай се.</a></p>
+    </div>
+    </form>
+    </div>
+
+            <div className="form-box register">
+                <form action="">
+                    <h1>Регистрация</h1>
+                    <div className="input-box">
+                        <input type="text" placeholder='Username' required />
+                        <FaUser className='icon' />
+                    </div>
+                    <div className="input-box">
+                        <input type="email" placeholder='Email' required />
+                        <FaEnvelope className='icon' />
+                    </div>
+                    <div className="input-box">
+                        <input type="password" placeholder='Password' required />
+                        <FaLock className='icon' />
+                    </div>
+
+                    <div className="remember-forgot">
+                        <label><input type="checkbox" />I agree to the terms & conditions</label>
+                    </div>
+
+                    <button type="submit">Регистрирай се!</button>
+
+                    <div className="register-link">
+                        <p>Вече имаш акаунт? <a href="#" onClick={loginLink}>Влизане</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    );
 };
 
-export default LoginForm
+export default LoginRegister;
