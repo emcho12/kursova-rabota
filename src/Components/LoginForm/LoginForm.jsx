@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
-import Navbar from '../Navbar/Navbar';
 
 const LoginRegister = () => {
 
-    const [action, setAction] = useState('');
+    const [action, setAction] = useState('');   // Дефинирал съм състояние "action", което ще определя коя форма да е активна (вход или регистрация)
+                                                // и useState hook , за да ми определя състоянията на формата.
 
     const registerLink = () => {
-        setAction(' active');
+        setAction(' active');    // Формата за регистрация ,когато е активна
     };
 
     const loginLink = () => {
-        setAction('');
+        setAction('');          //Тук не съм сложил същата стойност ,
+                              // за да не се сливат двете форми и формата не активна.
     };
 
     return ( 
-    <>
-         <Navbar/>
+    
         
     <div className={`wrapper${action}`}>
     <div className="form-box login">
@@ -73,7 +73,6 @@ const LoginRegister = () => {
                 </form>
             </div>
         </div>
-    </>
    );
 };
 
